@@ -1,0 +1,104 @@
+.container {
+    overflow: hidden;
+    min-width: 200px;
+    min-height: 200px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0);
+}
+p {
+    text-align: center;
+}
+p.danger {
+    text-align: center;
+    color: #ff363f;
+}
+form {
+    display: block;
+    margin: 20px;
+    text-align: center;
+    border: 5px;
+    border-radius: 4px;
+    border-color: aqua;
+}
+div {
+    margin-bottom: 10px;
+}
+table {
+    margin: auto;
+}
+.user {
+    float: right;
+    margin-right: 10px;
+}
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+
+.center_column {
+    margin-left: 220px;
+    margin-top: 60px;
+    background: #EEF2F2;
+    min-height: 200px;
+    width: 80%;
+    float: left;
+}
+
+.button {
+    margin-top: 20px;
+    width: 170px;
+    height: 40px;
+    background-color: #a1a5ff;
+    color: #fff529;
+    font-size: 16px;
+}
+.center_column_add {
+    background: #EEF2F2;
+    min-height: 200px;
+    width: 100%;
+    float: left;
+}
+
+.popup {
+    position: fixed;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    display:none;
+    text-align:center;
+}
+.popup_bg {
+    background:rgba(0,0,0,0.4);
+    position:absolute;
+    z-index:1;
+    height:100%;
+    width:100%;
+}
+
+.close_popup {
+    position: relative;
+    z-index:4;
+    padding: 5px 10px;
+    background: #fffc63;
+    border-radius: 15px;
+    color: #383838;
+    cursor: pointer;
+    float: right;
+    top: -20px;
+    right: -20px;
+}
+
+.menu {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: #ff02df;
+    font-weight: bold;
+}
+.menu a {
+    text-decoration: none;
+    color: #ff02df;
+}
