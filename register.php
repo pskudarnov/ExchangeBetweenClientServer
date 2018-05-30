@@ -4,8 +4,8 @@
     <?if (isset($reg) && !$reg) {?>
         <p class="danger">Пользователь с таким логином уже существует!</p>
     <?}?>
-
-    <?if (!LR3\Users::isAuth($_SESSION["user"])):?>
+<?require_once($_SERVER["DOCUMENT_ROOT"].'/functions/class/Users.php');
+    if (!LR3\Users::isAuth($_SESSION["user"])):?>
         <form name="authForm" method="POST" enctype="multipart/form-data">
             <table>
                 <tr>

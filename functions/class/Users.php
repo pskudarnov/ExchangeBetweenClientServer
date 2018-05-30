@@ -82,7 +82,7 @@ class Users
         }
         $arUsers = file($_SERVER['DOCUMENT_ROOT'].self::$BD);
         if ($arUsers) {
-            
+
             foreach ($arUsers as $strUser) {
                 $userData = explode(' | ', $strUser);
                 if ($userData[3] == $login) {
@@ -104,8 +104,8 @@ class Users
     public static function getNextId($login = "") {
         $arUsers = file($_SERVER['DOCUMENT_ROOT'].self::$BD);
         if ($arUsers) {
-                $userData = explode(' | ', $arUsers[count($arUsers)-1]);
-                    return $userData[0] + 1;
+            $userData = explode(' | ', $arUsers[count($arUsers)-1]);
+            return $userData[0] + 1;
         } else {
             return 1;
         }
