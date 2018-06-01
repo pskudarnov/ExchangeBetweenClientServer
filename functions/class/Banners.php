@@ -14,7 +14,11 @@ class Banners
             foreach ($arBanners as $strUser) {
                 $userData = explode(' | ', $strUser);
                 if ($userData) {
-                    array_push($allBanners, $userData);
+                    array_push($allBanners,
+                    array('id'=>$userData[0],
+                    'path'=>$userData[1],
+                    'max_shows'=>$userData[2],
+                    'target_url'=>$userData[3]));
                 }
             }
             return $allBanners;

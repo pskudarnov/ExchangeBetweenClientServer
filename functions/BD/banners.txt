@@ -1,3 +1,3 @@
-1 | /img/kot.jpg | 3 | https://www.krugozormagazine.com/show/article.2629.html
-2 | /img/lemur.jpg | 3 | https://demotivators.to/p/741900/nastoyaschaya-chernaya-zhopa.htm
-3 | /img/monkey.jpg | 3 | https://demotivators.to/media/posters/2909/689886_vot-tolko-zhopa-vse-portit.jpg
+1 | /img/kot.jpg | 1 | https://www.krugozormagazine.com/show/article.2629.html
+2 | /img/lemur.jpg | 1 | https://demotivators.to/p/741900/nastoyaschaya-chernaya-zhopa.htm
+3 | /img/monkey.jpg | 1 | https://demotivators.to/media/posters/2909/689886_vot-tolko-zhopa-vse-portit.jpg

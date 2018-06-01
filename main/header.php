@@ -35,33 +35,42 @@ if ($_GET["logout"] == "Y") {
 <header>
 
     <? require_once($_SERVER["DOCUMENT_ROOT"].'/functions/class/Banners.php');
+
+    function show_banner($banners, $format, $cookie_dict){
+        $need_reset = 1;
+        $indexes =  range(1, count($banners));
+        shuffle($indexes);
+        foreach ($indexes as $index){
+            if($cookie_dict[$index] < $banners[$index-1]['max_shows']) {
+                echo sprintf($format, $banners[$index-1]['path']);
+                $cookie_dict[$banners[$index-1]['id']]+=1;
+                setcookie('banners', json_encode($cookie_dict));
+                $need_reset = 0;
+                break;
+            }
+        }
+        return $need_reset;
+    }
+
+
+    function set_default_cookie($format){
+        $default = array('1'=>0, '2'=>0, '3'=>0);
+        setcookie('banners', json_encode($default));
+        return $default;
+    }
+
     $banners = LR3\Banners::getAllBanners();
     $format = '<img src=%s  weidth="200px" height="500px">';
-    if ($_COOKIE['banners']) {
+
+
+    if($_COOKIE['banners']) {
         $cookie_dict = json_decode($_COOKIE['banners'], true);
-        $i = 0;
-        $cookie_dict_for_rotation = $cookie_dict;
-        while ($banners){
-        $random_value = rand(1, count($banners));
-        if($cookie_dict_for_rotation[$random_value] < $banners[$random_value-1][2]) {
-            echo sprintf($format,$banners[$random_value-1][1]);
-            $cookie_dict[$random_value]+=1;
-            setcookie('banners', json_encode($cookie_dict));
-            break;
+        if (show_banner($banners, $format, $cookie_dict)){
+            show_banner($banners, $format, set_default_cookie($format));
         }
-        else{
-           unset($cookie_dict_for_rotation[$random_value]);
-           unset($banners[$random_value-1]);
-        }
-        }
-        $i++;
     }
     else{
-        $default = array('1'=>0, '2'=>0, '3'=>0);
-        $random_value = rand(1, count($banners));
-        echo sprintf($format,$banners[$random_value-1][1]);
-        $default[$random_value] += 1;
-        setcookie('banners', json_encode($default));
+        show_banner($banners, $format, set_default_cookie($format));
     }
     ?>
 
